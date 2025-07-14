@@ -15,12 +15,12 @@ pip install -r requirements.txt
 * `data/`: local shapefiles and input data
 * `output/`: generated maps and results
 
-sar/
+```bash
+SAR/
 │
 ├── .gitignore
 ├── requirements.txt
 ├── README.md
-├── LICENSE (opzionale)
 │
 ├── venv/                      ← .gitignore
 ├── data/                      ← shapefile, CSV...
@@ -28,9 +28,9 @@ sar/
 ├── notebook/
 │   └── 1_s1_moisture.ipynb
 ├── scripts/
-│   ├── download_s1.py         ← functions download
-│   └── soil_moisture.py
+│
 └── utils/
     └── config.py              ← common parameters (date, AOI, ecc.)
+```
 
 
