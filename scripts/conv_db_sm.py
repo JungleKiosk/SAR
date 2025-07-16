@@ -1,6 +1,5 @@
-def vv_to_soil_moisture(vv_db):
+def vv_to_soil_moisture(img, a=-10.0, b=50.0):
     """
-    Converte il valore VV (in dB) in umidità del suolo (% volumetrico).
-    Formula empirica da letteratura (adattabile).
+    formula: SM = a * VV + b
     """
-    return -4.33 * vv_db - 38.3
+    return img.multiply(a).add(b).rename("SoilMoisture")

@@ -158,6 +158,11 @@ These values depend on the **soil type**:
 This is exactly what was demonstrated in the paper:  
 **"Soil Texture, Soil Moisture, and Sentinel-1 Backscattering" (Stanyer et al., 2025)**
 
+> In general, coefficients vary from -3 to -5 (slope) and -30 to -50 (intercept), depending on:
+> - soil type (sandy, clayey, etc.),
+> - presence of vegetation,
+> - surface roughness.
+
 ---
 
 ### From Soil Moisture to Irrigation Need
