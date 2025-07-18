@@ -231,3 +231,6 @@ soil_moisture = a * vv_dB + b
 
 ---
 
+# 3. Soil Texture
+
+https://www.isric.org/news/soilgrids-data-now-available-google-earth-engine
