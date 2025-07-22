@@ -8,3 +8,4 @@ ipykernel
 folium
 geemap
 setuptools
+scikit-learn

@@ -55,10 +55,56 @@ SAR/
 
 ```
 
+### Load and Visualize AOI from a Local Shapefile (GeoPandas + Folium + Earth Engine)
+
+1. **Check for the presence of shapefiles** in the local directory (`../data/aoi/`).
+2. **Authenticate and initialize Google Earth Engine (GEE)** to enable access to remote sensing datasets.
+3. **Dynamically import a helper script** (`aoi_loader.py`) containing utility functions to load shapefiles as:
+
+   * a `GeoDataFrame` (for local use and visualization),
+   * and an `ee.Geometry` object (for Earth Engine processing).
+4. **Load the Area of Interest (AOI)** from the shapefile as both:
+
+   * a `GeoDataFrame` (`aoi_gdf`) using GeoPandas, and
+   * an Earth Engine geometry (`aoi_ee`) for cloud-based geospatial analysis.
+5. **Create an interactive map** using `folium`, centered on the AOI, and add the AOI layer to it.
+6. **Display the map directly within the notebook** (and optionally save it as an HTML file for external viewing).
+
+> 💡 This setup allows smooth interoperability between local GIS data and cloud processing via Earth Engine.
+
+---
+
+> ** Note: Earth Engine Authentication**
+>
+> When you run `ee.Authenticate()` for the first time, a browser window opens asking you to log in to your Google account and authorize Earth Engine access.
+> Once authorized, a **credentials token is saved locally** so that you don’t have to log in again every time.
+>
+> **Where is the token stored?**
+>
+> * **Windows:**
+>   `C:\Users\<YourUsername>\.config\earthengine\credentials`
+>
+> * **Linux/macOS:**
+>   `~/.config/earthengine/credentials`
+>
+> On subsequent runs, Earth Engine loads the saved credentials automatically.
+>
+> **To force re-authentication**, you can:
+>
+> * Delete or rename the `credentials` file manually, or
+> * Use:
+>
+>   ```python
+>   ee.Authenticate(clear_credentials=True)
+>   ```
+
 # 2. Reference Documentation
 
 doc path: SAR\doc\sar_moisture\remotesensing-17-00542.pdf
-**Reference**: Stanyer et al. (2025), *Remote Sensing*, 17(542), https://doi.org/10.3390/rs17030542  
+**Reference**: Stanyer et al. (2025), *Remote Sensing*, 17(542),
+<br>
+
+**https://doi.org/10.3390/rs17030542**
 
 ## Summary
 
