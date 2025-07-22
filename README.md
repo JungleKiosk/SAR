@@ -199,6 +199,7 @@ SM (%) = a × VV_dB + b
 
 These values depend on the **soil type**:
 - **Sandy soil** → lower slope (e.g., −1.7 %/dB)
+- **Silt soil** → medium slope (e.g., −2 %/dB)
 - **Clay soil** → higher slope (e.g., −4.8 %/dB)
 
 This is exactly what was demonstrated in the paper:  
