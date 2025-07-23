@@ -101,14 +101,14 @@ SAR/
 
 # Copernicus Satellites – Summary Table
 
-| Satellite   | Main Sensors                  | Resolution        | Revisit      | Main Applications                                              | Useful Links |
+| Satellite   | Main Sensors                  | Resolution        | Revisit      | Main Applications                                              | Links |
 |-------------|-------------------------------|-------------------|--------------|----------------------------------------------------------------|---------------|
 | Sentinel-1  | C-SAR (C-band Radar)          | 10 m              | 6 days       | Soil moisture, floods, landslides, deforestation               | [ESA Page](https://sentinel.esa.int/web/sentinel/missions/sentinel-1) |
-| Sentinel-2  | MSI (Multispectral Instrument)| 10–60 m (13 bands)| 5 days       | Vegetation, NDVI, agriculture, land cover/use                  | [ESA Page](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) |
-| Sentinel-3  | OLCI, SLSTR, SRAL             | 300–1000 m        | 1–2 days     | Ocean color, sea surface temperature, chlorophyll, sea ice     | [ESA Page](https://sentinel.esa.int/web/sentinel/missions/sentinel-3) |
-| Sentinel-4  | UVN (Ultraviolet Visible Near-IR) | ~7 km (geost.) | Continuous   | Air quality, atmospheric gases (NO₂, O₃, aerosols)             | [ESA Page](https://sentinel.esa.int/web/sentinel/missions/sentinel-4) |
-| Sentinel-5P | TROPOMI                       | 7 x 3.5 km        | Daily        | Atmospheric monitoring: ozone, methane, CO, NO₂, SO₂           | [ESA Page](https://sentinel.esa.int/web/sentinel/missions/sentinel-5p) |
-| Sentinel-6  | Poseidon-4 Radar Altimeter    | ~10 km            | 10 days      | Sea level, ocean circulation, climate monitoring               | [ESA Page](https://sentinel.esa.int/web/sentinel/missions/sentinel-6) |
+| Sentinel-2  | MSI (Multispectral Instrument)| 10–60 m (13 bands)| 5 days       | Vegetation, NDVI, agriculture, land cover/use                  | [ESA Page](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2) |
+| Sentinel-3  | OLCI, SLSTR, SRAL             | 300–1000 m        | 1–2 days     | Ocean color, sea surface temperature, chlorophyll, sea ice     | [ESA Page](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-3) |
+| Sentinel-4  | UVN (Ultraviolet Visible Near-IR) | ~7 km (geost.) | Continuous   | Air quality, atmospheric gases (NO₂, O₃, aerosols)             | [ESA Page](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-4) |
+| Sentinel-5P | TROPOMI                       | 7 x 3.5 km        | Daily        | Atmospheric monitoring: ozone, methane, CO, NO₂, SO₂           | [ESA Page](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-5P) |
+| Sentinel-6  | Poseidon-4 Radar Altimeter    | ~10 km            | 10 days      | Sea level, ocean circulation, climate monitoring               | [ESA Page](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-6) |
 
 # 2. Reference Documentation
 
