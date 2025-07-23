@@ -8,12 +8,13 @@ pip install -r requirements.txt
 ```
 
 ---
+
 ## Project Structure
 
-* `notebook/`: analysis and prototyping
-* `scripts/`: reusable Python modules
-* `data/`: local shapefiles and input data
-* `output/`: generated maps and results
+- `notebook/`: analysis and prototyping
+- `scripts/`: reusable Python modules
+- `data/`: local shapefiles and input data
+- `output/`: generated maps and results
 
 ```bash
 SAR/
@@ -34,7 +35,7 @@ SAR/
 │  └─ var/
 ├─ notebook/
 │  └─ 1_s1_moisture.ipynb
-├─ output/                          ← GeoTIFF, report...                          
+├─ output/                          ← GeoTIFF, report...
 │  ├─ s1/
 │  │  └─ sar_vv_2024_04_09.tif
 │  └─ var/
@@ -61,12 +62,14 @@ SAR/
 2. **Authenticate and initialize Google Earth Engine (GEE)** to enable access to remote sensing datasets.
 3. **Dynamically import a helper script** (`aoi_loader.py`) containing utility functions to load shapefiles as:
 
-   * a `GeoDataFrame` (for local use and visualization),
-   * and an `ee.Geometry` object (for Earth Engine processing).
+   - a `GeoDataFrame` (for local use and visualization),
+   - and an `ee.Geometry` object (for Earth Engine processing).
+
 4. **Load the Area of Interest (AOI)** from the shapefile as both:
 
-   * a `GeoDataFrame` (`aoi_gdf`) using GeoPandas, and
-   * an Earth Engine geometry (`aoi_ee`) for cloud-based geospatial analysis.
+   - a `GeoDataFrame` (`aoi_gdf`) using GeoPandas, and
+   - an Earth Engine geometry (`aoi_ee`) for cloud-based geospatial analysis.
+
 5. **Create an interactive map** using `folium`, centered on the AOI, and add the AOI layer to it.
 6. **Display the map directly within the notebook** (and optionally save it as an HTML file for external viewing).
 
@@ -81,36 +84,46 @@ SAR/
 >
 > **Where is the token stored?**
 >
-> * **Windows:**
->   `C:\Users\<YourUsername>\.config\earthengine\credentials`
+> - **Windows:** > `C:\Users\<YourUsername>\.config\earthengine\credentials`
 >
-> * **Linux/macOS:**
->   `~/.config/earthengine/credentials`
+> - **Linux/macOS:** > `~/.config/earthengine/credentials`
 >
 > On subsequent runs, Earth Engine loads the saved credentials automatically.
 >
 > **To force re-authentication**, you can:
 >
-> * Delete or rename the `credentials` file manually, or
-> * Use:
+> - Delete or rename the `credentials` file manually, or
+> - Use:
 >
 >   ```python
 >   ee.Authenticate(clear_credentials=True)
 >   ```
 
+# Sentinel
+
+| Satellite   | Sensori principali                | Risoluzione        | Revisita   | Utilizzi principali                                              | Risorse utili                                                            |
+| ----------- | --------------------------------- | ------------------ | ---------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| Sentinel-1  | C-SAR (Radar a microonde)         | 10 m               | 6 giorni   | Monitoraggio suolo, umidità, inondazioni, frane, deforestazione  | [Scheda ESA](https://sentinel.esa.int/web/sentinel/missions/sentinel-1)  |
+| Sentinel-2  | MSI (Multispectral Instrument)    | 10–60 m (13 bande) | 5 giorni   | Vegetazione, NDVI, agricoltura, uso/copertura del suolo          | [Scheda ESA](https://sentinel.esa.int/web/sentinel/missions/sentinel-2)  |
+| Sentinel-3  | OLCI, SLSTR, SRAL                 | 300–1000 m         | 1–2 giorni | Oceani, temperatura superficiale, clorofilla, ghiacci marini     | [Scheda ESA](https://sentinel.esa.int/web/sentinel/missions/sentinel-3)  |
+| Sentinel-4  | UVN (Ultraviolet Visible Near-IR) | ~7 km (geostaz.)   | Continuo   | Atmosfera, qualità dell’aria, gas (NO₂, O₃, aerosols)            | [Scheda ESA](https://sentinel.esa.int/web/sentinel/missions/sentinel-4)  |
+| Sentinel-5P | TROPOMI                           | 7 x 3.5 km         | 1 giorno   | Monitoraggio atmosfera: ozono, metano, CO, NO₂, SO₂              | [Scheda ESA](https://sentinel.esa.int/web/sentinel/missions/sentinel-5p) |
+| Sentinel-6  | Poseidon-4 Radar Altimeter        | ~10 km             | 10 giorni  | Altezza della superficie marina, correnti, cambiamento climatico | [Scheda ESA](https://sentinel.esa.int/web/sentinel/missions/sentinel-6)  |
+
 # 2. Reference Documentation
 
 doc path: SAR\doc\sar_moisture\remotesensing-17-00542.pdf
-**Reference**: Stanyer et al. (2025), *Remote Sensing*, 17(542),
+**Reference**: Stanyer et al. (2025), _Remote Sensing_, 17(542),
 <br>
 
 **https://doi.org/10.3390/rs17030542**
 
 ## Summary
 
-### Title  
+### Title
+
 **Soil Texture, Soil Moisture, and Sentinel-1 Backscattering: Towards the Retrieval of Field-Scale Soil Hydrological Properties**  
-*Stanyer et al., Remote Sens. 2025, 17, 542*
+_Stanyer et al., Remote Sens. 2025, 17, 542_
 
 ### 1. Introduction
 
@@ -122,16 +135,19 @@ This study investigates how **Sentinel-1 VV radar backscatter** varies in relati
 ### 2. Materials and Methods
 
 #### 2.1 Study Sites
+
 - 17 agricultural sites in the UK, part of the **COSMOS-UK** network.
 - Each site includes a sensor that measures soil moisture using **cosmic-ray neutron probes**.
 
 #### 2.2 Data Sources
+
 - **Soil Moisture (SM)** from COSMOS (0–20 cm depth, ~200 m footprint).
 - **VV Backscatter** from Sentinel-1 (C-band, GRD IW mode, 10 m resolution).
 - **NDVI** from Sentinel-2, used to detect low-vegetation periods.
 - **Soil Texture** from the UK Soil Observatory (UKSO).
 
 #### 2.3 Methodology
+
 - Agricultural **Field Sectors** were defined around each COSMOS sensor.
 - **Low Vegetation Periods (L-periods)** were selected where **NDVI < 0.35**.
 - Sentinel-1 data were **corrected for orbit-related biases**.
@@ -162,7 +178,7 @@ The results suggest that **VV backscatter can serve as a proxy for soil texture*
 ### Citation
 
 > Stanyer, C., Seco-Rizo, I., Atzberger, C., Marti-Cardona, B.  
-> *Soil Texture, Soil Moisture, and Sentinel-1 Backscattering: Towards the Retrieval of Field-Scale Soil Hydrological Properties*.  
+> _Soil Texture, Soil Moisture, and Sentinel-1 Backscattering: Towards the Retrieval of Field-Scale Soil Hydrological Properties_.  
 > Remote Sens. 2025, 17, 542. https://doi.org/10.3390/rs17030542
 
 ---
@@ -177,6 +193,7 @@ Sentinel-1 does **not measure soil moisture directly**.
 It returns a **backscatter coefficient** (in dB), which reflects how much of the radar signal bounces off the Earth’s surface.
 
 Backscatter is influenced by:
+
 - Soil moisture
 - Soil texture (sand, loam, clay)
 - Vegetation cover (NDVI)
@@ -198,6 +215,7 @@ SM (%) = a × VV_dB + b
 - The **intercept `b`** varies based on local soil and calibration.
 
 These values depend on the **soil type**:
+
 - **Sandy soil** → lower slope (e.g., −1.7 %/dB)
 - **Silt soil** → medium slope (e.g., −2 %/dB)
 - **Clay soil** → higher slope (e.g., −4.8 %/dB)
@@ -206,6 +224,7 @@ This is exactly what was demonstrated in the paper:
 **"Soil Texture, Soil Moisture, and Sentinel-1 Backscattering" (Stanyer et al., 2025)**
 
 > In general, coefficients vary from -3 to -5 (slope) and -30 to -50 (intercept), depending on:
+>
 > - soil type (sandy, clayey, etc.),
 > - presence of vegetation,
 > - surface roughness.
@@ -222,6 +241,7 @@ mm_water = (water_deficit / 100) * root_zone_depth_mm
 ```
 
 Where:
+
 - `ideal_SM` = target soil moisture for the crop (e.g., 30% for maize)
 - `root_zone_depth_mm` = depth of active root zone (e.g., 300 mm)
 
@@ -243,21 +263,21 @@ Sentinel-1 is a **Synthetic Aperture Radar (SAR)** satellite that emits microwav
 
 SAR can transmit and receive radar waves in different **polarizations**:
 
-* **V = Vertical** (the electric field is oriented vertically)
-* **H = Horizontal**
+- **V = Vertical** (the electric field is oriented vertically)
+- **H = Horizontal**
 
 So:
 
-* **VV** = Radar signal **transmitted vertically** and **received vertically**
-* **VH** = Transmitted vertically, received horizontally
+- **VV** = Radar signal **transmitted vertically** and **received vertically**
+- **VH** = Transmitted vertically, received horizontally
 
 ---
 
 ### Why is **VV used for soil moisture estimation**?
 
-* **VV backscatter** is more **sensitive to surface moisture** than VH in many bare-soil or low-vegetation conditions.
-* It responds strongly to **changes in dielectric properties** of the soil, which are influenced by **water content**.
-* VV also has **higher signal-to-noise ratio** over smooth, flat surfaces (e.g., agricultural fields).
+- **VV backscatter** is more **sensitive to surface moisture** than VH in many bare-soil or low-vegetation conditions.
+- It responds strongly to **changes in dielectric properties** of the soil, which are influenced by **water content**.
+- VV also has **higher signal-to-noise ratio** over smooth, flat surfaces (e.g., agricultural fields).
 
 > In most studies (including Stanyer et al., 2025), **VV backscatter** is used as the main input to estimate **surface soil moisture** from Sentinel-1.
 
@@ -265,9 +285,9 @@ So:
 
 ### Units and Usage
 
-* VV backscatter is given in **decibels (dB)**.
-* It is a **negative number** (e.g., −5 to −20 dB).
-* Lower dB → less reflection (dry soil)
+- VV backscatter is given in **decibels (dB)**.
+- It is a **negative number** (e.g., −5 to −20 dB).
+- Lower dB → less reflection (dry soil)
   Higher dB → more reflection (wet soil)
 
 You can convert it to **soil moisture (%)** using empirical formulas like:
